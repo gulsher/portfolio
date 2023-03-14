@@ -15,7 +15,7 @@ import git from './img/git-min.png'
 import contact from './img/contact.png'
 import pin from './img/placeholder.png'
 import emailIcon from './img/email.png'
-import contactEmail from './img/contact-email.jpg'
+import contactEmail from './img/contact-email-min.jpg'
 import emailjs, { init } from "@emailjs/browser";
 import Swal from 'sweetalert2';
 import AOS from 'aos';
@@ -302,10 +302,10 @@ const handleCancel = e =>{
       <div className="modal-body custom-modal">
         <h3 className='text-uppercase text-center text-muted my-4'>Love to hear from you </h3>
         <div className='row'>
-          <div className='col-6'>
+          <div className='col-12 col-md-6'>
             <img src={contactEmail} className="img-fluid" />
           </div>
-          <div className='col-6'>
+          <div className='col-12 col-md-6'>
 
         <form>
           <div className="mb-3">
