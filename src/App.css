@@ -1,38 +1,398 @@
-.App {
+html{
+  scroll-behavior: smooth;
+}
+body{
+  font-family: 'Montserrat', sans-serif !important;
+  background-color: white;
+  font-size: 14px;
+}
+
+.cus-search{
+  outline: 0;
+  border: 1px solid lightgray;
+  padding: 12px 35px 12px 12px;
+  border-radius: 10px;
+  font-size: 14px;
+  font-weight: 600;
+}
+
+.relative-box{
+  position: relative;
+}
+
+.search-png{
+  position: absolute;
+  right: 22px;
+  top:14px;
+}
+
+.img-container{
+  display: block;
+  width: 100%;
+  margin-left: auto;
+  
+}
+
+.img-text{
+  margin-top: 120px;
+}
+
+.img-text h1{
+  font-size: 55px;
+  font-weight: 700;
+  text-transform: uppercase;
+  position: relative;
+}
+
+.hello::before{
+  display: inline-block;
+  width: 180px;
+  height: 50px;
+  content: 'Hello !!';
+  font-size: 16px;
+  position: absolute;
+  color:blueviolet;
+  transform: rotateY(0deg) rotate(90deg);
+  left: -95px;
+  padding-right: 90px;
+  position: absolute;
+}
+
+
+.hello-exp::before{
+  display: inline-block;
+  width: 180px;
+  height: 50px;
+  content: 'Experience';
+  font-size: 16px;
+  position: absolute;
+  color:blueviolet;
+  transform: rotateY(0deg) rotate(90deg);
+  left: -95px;
+  top:-40px;
+  padding-right: 90px;
+  position: absolute;
+}
+
+.banner-pgph{
+  margin-top: 20px;
+  padding-left: 30px;
+  position: relative;
+  font-weight: 600;
+}
+
+.banner-pgph::before{
+  display: inline;
+  width: 20px;
+  height: 1px;
+  content: '';
+  position: absolute;
+  border:1px solid blueviolet;
+  left:0px;
+  top:5px
+}
+
+.button-send{
+  background-color: blueviolet;
+  border: 0;
+  outline: 0;
+  color:white;
+  padding: 12px 20px;
+  font-weight: 500;
+  border-radius: 8px;
+  border: 1px solid rgba(138, 43, 226, 0.1);
+  font-size: 12px;
+}
+
+.button-send span{
+  margin-left: 5px;
+  display: inline-block;
+}
+
+.fullview{
+  min-height: 100vh;
+}
+
+.bg-yellow{
+  background-color: #ffd165;
+}
+
+.padd-100-top{
+  padding-top: 100px;
+}
+
+.exp-list ul{
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  
+}
+
+.exp-list ul li{
+  font-size: 40px;
+  font-weight: 700;
+  border-top: 2px solid black;
+}
+
+.exp-list p{
+  margin-bottom: 0;
+  font-weight: 500;
+}
+
+.exp-list{
+  margin-top: 150px;
+  width: 500px;
+}
+
+.pb-50{
+  padding-bottom: 50px;
+}
+
+.skills::before{
+  display: inline-block;
+  width: 180px;
+  height: 50px;
+  content: 'Skills';
+  font-size: 16px;
+  position: absolute;
+  color:blueviolet;
+  transform: rotateY(0deg) rotate(90deg);
+  left: -95px;
+  top:0px;
+  padding-right: 90px;
+  position: absolute;
+}
+
+.skill-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  margin-top: 50px;
+  margin-bottom: 50px;
+}
+.skill-list li {
+  display: inline-block;
+}
+.skill-list p{
+  margin-bottom: 0;
+  text-align: center;
+  font-weight: 600;
+  margin-top:20px;
+  text-transform: uppercase;
+}
+
+.skill-bar{
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  margin-top: 100px;
+}
+.skill-bar li {
+  margin-bottom: 30px;
+}
+
+.skill-bar p{
+  margin-bottom: 0;
+  text-transform: uppercase;
+  font-weight: 700;
+}
+
+.contact::before{
+  display: inline-block;
+  width: 180px;
+  height: 50px;
+  content: 'contact';
+  font-size: 16px;
+  position: absolute;
+  color:blueviolet;
+  transform: rotateY(0deg) rotate(90deg);
+  left: -95px;
+  top:-20px;
+  padding-right: 90px;
+  position: absolute;
+}
+
+.contact-list ul{
+  list-style: none;
+  padding: 0;
+  margin:0
+}
+
+.contact-list li{
+  
+  text-transform: uppercase;
+  font-weight: 600;
+}
+.contact-list p{
+  margin-bottom: 30px;
+  font-weight: 500;
+ 
+}
+
+
+.footer{
+  border-top: 2px solid black;
+  padding: 20px 0;
+  font-weight: 600;
+}
+
+.text-right{
+  text-align: right;
+}
+
+.text-center{
+  text-align: center;
+}
+.custom-modal input{
+  font-size: 12px;
+}
+.custom-modal textarea{
+  font-size: 12px;
+  min-height: 150px !important;
+}
+
+
+.text-right-toggle{
+  text-align: right;
+}
+
+.text-center-toggle{
   text-align: center;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.text-left-toggle{
+  text-align: left;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+
+
+/* Smartphones (portrait and landscape) ----------- */
+@media only screen 
+and (min-device-width : 320px) 
+and (max-device-width : 480px) {
+/* Styles */
+
+ .img-text h1{
+  font-size: 30px;
+ }
+
+ .exp-list ul{
+  margin:0;
+  padding: 0;
+  width: 200px;
+  margin-block-end: 0;
+ }
+ .exp-list ul li{
+  font-size: 20px;
+  margin:0;
+  padding: 0;
+ }
+
+ .contact-img{
+  width: 300px;
+  text-align: center;
+  display: block;
+  margin: 0 auto;
+ }
+
+ .contact-list{
+  text-align: center;
+ }
+
+ .banner-pgph{
+  text-align: center;
+ }
+ .img-text button{
+  display: block;
+  margin:0 auto
+ }
+ .exp-list ul li{
+  width: 300px;
+ }
+
+ .search-png{
+  right: 135px;
+ }
+
+ .exp-list{
+  width: 100%;
+ }
+ 
+ .text-right-toggle{
+  text-align: center;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+.text-center-toggle{
+  text-align: center;
 }
 
-.App-link {
-  color: #61dafb;
+.text-left-toggle{
+  text-align: center;
+}
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+/* Smartphones (landscape) ----------- */
+@media only screen 
+and (min-width : 321px) {
+/* Styles */
+}
+
+/* Smartphones (portrait) ----------- */
+@media only screen 
+and (max-width : 320px) {
+/* Styles */
+}
+
+/* iPads (portrait and landscape) ----------- */
+@media only screen 
+and (min-device-width : 768px) 
+and (max-device-width : 1024px) {
+/* Styles */
+
+.contact-img{
+  width: 300px;
+}
+
+.footer{
+  font-size: 12px;
+}
+.w-100{
+  width: 100%;
+}
+
+}
+
+/* iPads (landscape) ----------- */
+@media only screen 
+and (min-device-width : 768px) 
+and (max-device-width : 1024px) 
+and (orientation : landscape) {
+/* Styles */
+}
+
+/* iPads (portrait) ----------- */
+@media only screen 
+and (min-device-width : 768px) 
+and (max-device-width : 1024px) 
+and (orientation : portrait) {
+/* Styles */
+}
+
+/* Desktops and laptops ----------- */
+@media only screen 
+and (min-width : 1224px) {
+/* Styles */
+}
+
+/* Large screens ----------- */
+@media only screen 
+and (min-width : 1824px) {
+/* Styles */
+}
+
+/* iPhone 4 ----------- */
+@media
+only screen and (-webkit-min-device-pixel-ratio : 1.5),
+only screen and (min-device-pixel-ratio : 1.5) {
+/* Styles */
 }
