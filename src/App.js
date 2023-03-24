@@ -3,7 +3,7 @@ import logo from './img/IMG-2524.jpg';
 import './App.css';
 import { HashLink as Link } from 'react-router-hash-link';
 import searchlogo from './img/search.png'
-import avatar from './img/vec.jpg'
+import avatar from './img/vec-min.jpg'
 import html from './img/html-min.png'
 import css from './img/css-min.png'
 import js from './img/js-min.png'
@@ -58,6 +58,10 @@ const sendEmail = async e =>{
     footer: error
   })
  });
+}
+
+const validMail =(mail) =>{
+    return /^(([^<>()\[\]\.,;:\s@\"]+(\.[^<>()\[\]\.,;:\s@\"]+)*)|(\".+\"))@(([^<>()\.,;\s@\"]+\.{0,1})+([^<>()\.,;:\s@\"]{2,}|[\d\.]+))$/.test(mail);
 }
 
 const handleCancel = e =>{
@@ -310,14 +314,20 @@ const handleCancel = e =>{
         <form>
           <div className="mb-3">
             
-            <input  placeholder='Your Email' type="email"  value={email} onChange={(e)=>setEmail(e.target.value)} className="form-control" id="recipient-name" />
+            <input  placeholder='Your Email' type="email"  value={email} onChange={(e)=>setEmail(e.target.value)} className={(email.length && validMail(email)) ? `form-control`: `form-control is-invalid`} id="recipient-name" />
+            <div className='invalid-feedback inv-feed-custom'>
+              Enter valid email
+            </div>
           </div>
           <div className="mb-3">
             
-            <textarea className="form-control" placeholder='Your Message' value={body} onChange={(e)=>setBody(e.target.value)} id="message-text"></textarea>
+            <textarea className={body.length < 1 ? `form-control is-invalid`:`form-control` } placeholder='Your Message' value={body} onChange={(e)=>setBody(e.target.value)} id="message-text"></textarea>
+            <div className='invalid-feedback inv-feed-custom'>
+              Message body cannot be empty
+            </div>
           </div>
           <div className='mb-3'>
-            <button className='button-send' onClick={sendEmail}> Send </button>
+            <button className='button-send' disabled={(email.length && body.length && validMail(email))?false:true} onClick={sendEmail}> Send </button>
             <button className='button-send ms-3 bg-secondary' data-bs-dismiss="modal" onClick={handleCancel}>Cancel</button>
           </div>
         </form>
