@@ -24,8 +24,8 @@ import 'aos/dist/aos.css';
 
 function App() {
 
-  const [email,setEmail] = useState("");
-  const [body,setBody] = useState("");
+  const [email,setEmail] = useState("xyz@youremail.com");
+  const [body,setBody] = useState("Your Message");
 
   useEffect(() => {
     AOS.init();
@@ -182,7 +182,7 @@ const handleCancel = e =>{
     data-aos-easing="ease-in-out">
       {skills.length && skills.map((list,key)=>{
         return <li key={key}>
-          <img src={list.img} className='img-fluid' width="150" />
+          <img src={list.img} className='img-fluid' width="120" />
           <p className='text-muted'>{list.txt}</p>
         </li>
       })}
@@ -327,8 +327,8 @@ const handleCancel = e =>{
             </div>
           </div>
           <div className='mb-3'>
-            <button className='button-send' disabled={(email.length && body.length && validMail(email))?false:true} onClick={sendEmail}> Send </button>
-            <button className='button-send ms-3 bg-secondary' data-bs-dismiss="modal" onClick={handleCancel}>Cancel</button>
+            <button className='button-send' disabled={(email.length && body.length && validMail(email))?false:true} onClick={sendEmail}> Send <span><i className="fa-regular fa-paper-plane"></i></span> </button>
+            <button className='button-send ms-3 bg-warning' data-bs-dismiss="modal" onClick={handleCancel}>Cancel <span><i className="fa-solid fa-xmark"></i></span> </button>
           </div>
         </form>
         </div>
