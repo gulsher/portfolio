@@ -3,32 +3,39 @@ import logo from './img/IMG-2524.jpg';
 import './App.css';
 import { HashLink as Link } from 'react-router-hash-link';
 import searchlogo from './img/search.png'
-import avatar from './img/vec-min.jpg'
-import html from './img/html-min.png'
-import css from './img/css-min.png'
-import js from './img/js-min.png'
-import react from './img/react.png'
-import node from './img/node.png'
-import mongo from './img/mongo.png'
-import mysql from './img/mysql-min.png'
-import git from './img/git-min.png'
+import avatar from './img/ezgif.com-optimize.gif'
 import contact from './img/contact.png'
-import pin from './img/placeholder.png'
-import emailIcon from './img/email.png'
+
 import contactEmail from './img/contact-email-min.jpg'
 import emailjs, { init } from "@emailjs/browser";
 import Swal from 'sweetalert2';
 import AOS from 'aos';
 import 'aos/dist/aos.css';
+import { MdOutlineMailOutline } from "react-icons/md";
+import { SiMongodb,SiMysql } from "react-icons/si";
+import { DiNodejs ,DiHtml5 ,DiCss3 ,DiJavascript ,DiReact,DiGit} from "react-icons/di";
+import { GoLocation } from "react-icons/go";
 
 
 function App() {
 
   const [email,setEmail] = useState("xyz@youremail.com");
   const [body,setBody] = useState("Your Message");
+  const [jokes,setJokes] = useState([])
+  const url = `https://official-joke-api.appspot.com/jokes/programming/random`
+  const getJokes = async () => {
+    fetch(url).then(resp=>resp.json()).then(data=>{
+      console.log(data)
+      setJokes(data)
+    }).catch(e=>{
+      console.log(e)
+      setJokes([])
+    })
+  }
 
   useEffect(() => {
     AOS.init();
+    getJokes();
   }, [])
   
 const sendEmail = async e =>{
@@ -70,7 +77,7 @@ const handleCancel = e =>{
   setBody("");
 }
 
-  let skills = [{img:html,txt:'html5'},{img:css,txt:'css3'},{img:js,txt:'javascript'},{img:react,txt:'reactjs'},{img:node,txt:'nodejs'},{img:mongo,txt:'mongodb'},{img:mysql,txt:'mysql'},{img:git,txt:'git'}];
+  let skills = [{img:<DiHtml5/>,txt:'html5'},{img:<DiCss3/>,txt:'css3'},{img:<DiJavascript/>,txt:'javascript'},{img:<DiReact/>,txt:'reactjs'},{img:<DiNodejs/>,txt:'nodejs'},{img:<SiMongodb/>,txt:'mongodb'},{img:<SiMysql/>,txt:'mysql'},{img:<DiGit/>,txt:'git'}];
 
   return (
     <div className='page'>
@@ -99,10 +106,7 @@ const handleCancel = e =>{
 
         </li>
       </ul>
-      <form className="d-flex relative-box" role="search">
-        <input className="cus-search me-2" type="search" placeholder="Search" aria-label="Search" />
-        <img src={searchlogo} width="20" height="20"  className='search-png'/>
-      </form>
+      
     </div>
   
 </nav>
@@ -115,7 +119,7 @@ const handleCancel = e =>{
       <h1 className='hello'>I have</h1>
       <h1>Full Stack Development</h1>
       <h1>experience</h1>
-      <p className='banner-pgph text-muted'> Hi ! I'm a Full stack (react-node js) developer - creating a complete web from the scratch. </p>
+      <p className='banner-pgph '> Hi ! I'm a Full stack (react-node js) developer - creating a complete web from the scratch. </p>
       <button className='button-send' data-bs-toggle="modal" data-bs-target="#exampleModal"> Let's Talk <span><i className="fa-sharp fa-regular fa-paper-plane"></i> </span> </button>
     </div>
   </div>
@@ -140,7 +144,7 @@ const handleCancel = e =>{
     data-aos-easing="ease-in-out" className='img-text w-100'>
       <h1 className='hello-exp'>Experience</h1>
       <h1>Total I have</h1>
-      <p className='banner-pgph text-muted'>I've started my journey from startup and currently I'm working in a MNC with 5+ years of total experience. </p>
+      <p className='banner-pgph'>I've started my journey from startup and currently I'm working in a MNC with 5+ years of total experience. </p>
       
     </div>
         </div>
@@ -152,13 +156,13 @@ const handleCancel = e =>{
           <ul>
             <li>Mahindra Comviva</li>
           </ul>
-          <p className='text-muted' >-Technical Lead Engineer</p>
-          <p className='text-muted pb-50'>-Oct-19 - Present (3 years +) </p>
+          <p>-Technical Lead Engineer</p>
+          <p className='pb-50'>-Oct-19 - Present (3 years +) </p>
           <ul>
             <li>Big App Company</li>
           </ul>
-          <p className='text-muted' >-Frontend Developer</p>
-          <p className='text-muted pb-50'>-June-17 - Sept-19 (2 years)</p>
+          <p >-Frontend Developer</p>
+          <p className='pb-50'>-June-17 - Sept-19 (2 years)</p>
           </div>
         </div>
         </div>
@@ -173,8 +177,8 @@ const handleCancel = e =>{
     data-aos-duration="1000"
     data-aos-easing="ease-in-out">
       <h1 className='skills'>Skills</h1>
-      <p className='banner-pgph text-muted'>An expert in Full stack web Development by designing , developing, debugging and solving complex problems through my skills and experience .</p>
-      <p className='banner-pgph text-muted'>Below are my primary skills, apart from that i've good knowledge of Docker, AWS ,Redux ,Jest(Testing library),Redis ,JIRA, Team mangement ,supervising juniors, good hands on Linux machine and Windows.</p>
+      <p className='banner-pgph '>An expert in Full stack web Development by designing , developing, debugging and solving complex problems through my skills and experience .</p>
+      <p className='banner-pgph'>Below are my primary skills, apart from that i've good knowledge of Docker, AWS ,Redux ,Jest(Testing library),Redis ,JIRA, Team mangement ,supervising juniors, good hands on Linux machine and Windows.</p>
     </div>
     <ul className='skill-list w-100' data-aos="fade-right" data-aos-offset="200"
     data-aos-delay="50"
@@ -182,7 +186,7 @@ const handleCancel = e =>{
     data-aos-easing="ease-in-out">
       {skills.length && skills.map((list,key)=>{
         return <li key={key}>
-          <img src={list.img} className='img-fluid' width="120" />
+          <span>{list.img} </span>
           <p className='text-muted'>{list.txt}</p>
         </li>
       })}
@@ -196,13 +200,13 @@ const handleCancel = e =>{
           <li>
             <p>html5</p>
       <div className="progress" role="progressbar" aria-label="Success example" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100">
-  <div className="progress-bar bg-danger" style={{width: "91%"}}>91%</div>
+  <div className="progress-bar bg-warning" style={{width: "91%"}}>91%</div>
 </div>
 </li>
 <li>
   <p>css3</p>
 <div className="progress" role="progressbar" aria-label="Info example" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100">
-  <div className="progress-bar bg-info" style={{width: "85%"}}>85%</div>
+  <div className="progress-bar bg-warning" style={{width: "85%"}}>85%</div>
 </div>
 </li>
 <li>
@@ -214,31 +218,31 @@ const handleCancel = e =>{
 <li>
   <p>reactjs</p>
 <div className="progress" role="progressbar" aria-label="Danger example" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100">
-  <div className="progress-bar bg-primary" style={{width: "81%"}}>81%</div>
+  <div className="progress-bar bg-warning" style={{width: "81%"}}>81%</div>
 </div>
 </li>
 <li>
   <p>nodejs</p>
 <div className="progress" role="progressbar" aria-label="Danger example" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100">
-  <div className="progress-bar bg-success" style={{width: "87%"}}>87%</div>
+  <div className="progress-bar bg-warning" style={{width: "87%"}}>87%</div>
 </div>
 </li>
 <li>
   <p>mysql</p>
 <div className="progress" role="progressbar" aria-label="Danger example" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100">
-  <div className="progress-bar bg-info" style={{width: "83%"}}>73%</div>
+  <div className="progress-bar bg-warning" style={{width: "83%"}}>73%</div>
 </div>
 </li>
 <li>
   <p>mongodb</p>
 <div className="progress" role="progressbar" aria-label="Danger example" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100">
-  <div className="progress-bar bg-success" style={{width: "80%"}}>80%</div>
+  <div className="progress-bar bg-warning" style={{width: "80%"}}>80%</div>
 </div>
 </li>
 <li>
   <p>git</p>
 <div className="progress" role="progressbar" aria-label="Danger example" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100">
-  <div className="progress-bar bg-danger" style={{width: "82%"}}>82%</div>
+  <div className="progress-bar bg-warning" style={{width: "82%"}}>82%</div>
 </div>
 </li>
 </ul>
@@ -264,14 +268,14 @@ const handleCancel = e =>{
     data-aos-duration="1000"
     data-aos-easing="ease-in-out">
           <ul>
-            <li> <img src={emailIcon} width="30" /> Email</li>
+            <li> <MdOutlineMailOutline/> Email</li>
           </ul>
-          <p className='text-muted' > ahmed.gulsher@gmail.com</p>
+          <p className='text-dark' > ahmed.gulsher@gmail.com</p>
           
           <ul>
-            <li><img src={pin} width="30" /> Location</li>
+            <li><GoLocation/> Location</li>
           </ul>
-          <p className='text-muted' >  Bangalore,INDIA</p>
+          <p className='text-dark' >  Bangalore,INDIA</p>
       <button className='button-send mb-3' data-bs-toggle="modal" data-bs-target="#exampleModal"> Let's Talk <span><i className="fa-sharp fa-regular fa-paper-plane"></i> </span> </button>
           </div>
         </div>
@@ -281,6 +285,11 @@ const handleCancel = e =>{
     data-aos-duration="1000"
     data-aos-easing="ease-in-out" width="500" />
         </div>
+        </div>
+        <div className='jokes'>
+          <h5>Joke of the day</h5>
+          <p>{jokes.length? `${jokes[0].setup} ${jokes[0].punchline}`:`No Jokes available for today ! All developers are busy with the work`} <button className='button-send-sm    ms-3' onClick={getJokes} >One More Joke <i className="fa-solid fa-bolt"></i></button> </p>
+          
         </div>
         <div className='footer'>
         <div className='row'>

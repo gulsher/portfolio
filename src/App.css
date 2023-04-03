@@ -5,6 +5,8 @@ body{
   font-family: 'Montserrat', sans-serif !important;
   background-color: white;
   font-size: 14px;
+  scroll-behavior: smooth;
+  text-transform: uppercase;
 }
 
 .cus-search{
@@ -25,12 +27,14 @@ body{
   right: 22px;
   top:14px;
 }
+.img-in-container{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
 
 .img-container{
-  display: block;
-  width: 100%;
-  margin-left: auto;
-  
+  height: 100%;
 }
 
 .img-text{
@@ -58,6 +62,14 @@ body{
   position: absolute;
 }
 
+.progress{
+  height: 14px !important;
+}
+
+.progress-bar{
+  color:white!important;
+  font-size: 10px;
+}
 
 .hello-exp::before{
   display: inline-block;
@@ -79,6 +91,7 @@ body{
   padding-left: 30px;
   position: relative;
   font-weight: 600;
+  font-size: 14px;
 }
 
 .banner-pgph::before{
@@ -97,11 +110,23 @@ body{
   border: 0;
   outline: 0;
   color:white;
-  padding: 12px 20px;
+  padding: 10px 20px;
   font-weight: 500;
   border-radius: 8px;
   border: 1px solid rgba(138, 43, 226, 0.1);
   font-size: 12px;
+}
+
+.button-send-sm{
+  background-color: blueviolet;
+  border: 0;
+  outline: 0;
+  color:white;
+  font-size: 500;
+  font-size: 10px;
+  border: 1px solid rgba(138, 43, 226, 0.1);
+  border-radius: 5px;
+  padding: 8px 15px;
 }
 
 .button-send span{
@@ -131,12 +156,14 @@ body{
 .exp-list ul li{
   font-size: 40px;
   font-weight: 700;
-  border-top: 2px solid black;
+  border-top: 2px solid blueviolet;
+  color:blueviolet;
 }
 
 .exp-list p{
   margin-bottom: 0;
   font-weight: 500;
+  font-size: 14px;
 }
 
 .exp-list{
@@ -176,10 +203,20 @@ body{
 .skill-list p{
   margin-bottom: 0;
   text-align: center;
-  font-weight: 600;
+  font-weight: 500;
   margin-top:20px;
   text-transform: uppercase;
+  font-size: 12px;
 }
+
+.skill-list li span{
+  width: 150px;
+  display: block;
+  font-size: 45px;
+  text-align: center;
+  color:black
+}
+
 
 .skill-bar{
   list-style: none;
@@ -194,7 +231,9 @@ body{
 .skill-bar p{
   margin-bottom: 0;
   text-transform: uppercase;
-  font-weight: 700;
+  font-weight: 600;
+  font-size: 12px;
+  color:blueviolet;
 }
 
 .contact::before{
@@ -219,14 +258,20 @@ body{
 }
 
 .contact-list li{
-  
+    color:blueviolet;
   text-transform: uppercase;
-  font-weight: 600;
+  font-size: 12px;
+  font-weight: 500;
 }
 .contact-list p{
   margin-bottom: 30px;
   font-weight: 500;
- 
+  font-size: 12px;
+  
+}
+
+.contact-list li svg{
+  font-size: 18px;
 }
 
 
@@ -269,6 +314,22 @@ body{
   font-weight: 500;
 }
 
+.jokes{
+  text-align: center;
+}
+
+.jokes p{
+  font-size: 12px;
+  text-transform: uppercase;
+}
+
+.jokes h5{
+  font-size: 15px;
+  color:blueviolet;
+  text-transform: uppercase;
+  font-weight: 600;
+  
+}
 
 /* Smartphones (portrait and landscape) ----------- */
 @media only screen 
