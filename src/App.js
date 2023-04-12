@@ -280,7 +280,7 @@ const handleCancel = e =>{
           </div>
         </div>
         <div className='col-lg-6 col-md-6'>
-          <img src={contact} className="contact-img w-100" data-aos="fade-left" data-aos-offset="200"
+          <img src={contact} className="contact-img " data-aos="fade-left" data-aos-offset="200"
     data-aos-delay="50"
     data-aos-duration="1000"
     data-aos-easing="ease-in-out" width="500" />
